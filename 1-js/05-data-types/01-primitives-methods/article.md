@@ -10,12 +10,13 @@ JavaScript हमें (strings, numbers, आदि.) के साथ का�
 - एक प्राथमिक(primitives) प्रकार का एक मूल्य है
 - प्राथमिक (primitives) के कुल 7 प्रकार हैं: `string`, `number`, `bigint`, `boolean`, `symbol`, `null` और `undefined`.
 
-An object
+एक वस्तु(objects)
 
-- Is capable of storing multiple values as properties.
-- Can be created with `{}`, for instance: `{name: "John", age: 30}`. There are other kinds of objects in JavaScript: functions, for example, are objects.
+- गुणों के रूप में एकाधिक मानों(values) को संग्रहीत करने में सक्षम है। 
+- `{}` से बनाया जा सकता है, उदाहरण के लिए: `{name: "John", age: 30}`. JavaScript में अन्य प्रकार की वस्तु(objects) भी हैं: functions, for example, are objects. कार्य (functions), उदाहरण के लिए, वस्तु(objects) हैं।
 
 One of the best things about objects is that we can store a function as one of its properties.
+वस्तु(objects) के बारे में सबसे अच्छी चीजों में से एक यह है कि हम किसी कार्य (functions) को उसके गुणों(properties) में से एक के रूप में संग्रहीत कर सकते हैं।
 
 ```js run
 let john = {
@@ -28,28 +29,29 @@ let john = {
 john.sayHi(); // Hi buddy!
 ```
 
-So here we've made an object `john` with the method `sayHi`.
+तो यहाँ हमने एक `john` वस्तु(objects)  बनाई है , `sayHi` तरीका(method) के साथ.
 
-Many built-in objects already exist, such as those that work with dates, errors, HTML elements, etc. They have different properties and methods.
+कई में निर्मित वस्तु(objects) पहले से मौजूद हैं, जैसे वे जो दिनांक (dates), त्रुटियों (errors), HTML तत्वों(elements) आदि. के साथ काम करते हैं। उनके अलग-अलग गुण(properties) और विधियाँ(methods) हैं।
 
-But, these features come with a cost!
+लेकिन, इन सुविधाओं की कीमत चुकानी पड़ती है!
 
-Objects are "heavier" than primitives. They require additional resources to support the internal machinery.
+वस्तु(objects) प्राथमिक(primitives) की तुलना में "भारी" हैं। उन्हें आंतरिक तंत्र को सहारा देने के लिए अतिरिक्त संसाधनों की आवश्यकता होती है।
 
-## A primitive as an object
+## एक प्राथमिक(primitives) वस्तु(objects) के रूप में
 
-Here's the paradox faced by the creator of JavaScript:
+यहां JavaScript निर्माता द्वारा सामना किए गए विरोधाभास(paradox) हैं
 
-- There are many things one would want to do with a primitive like a string or a number. It would be great to access them as methods.
-- Primitives must be as fast and lightweight as possible.
+- ऐसी कई चीजें हैं जो एक प्राथमिक(primitives) के साथ एक string या एक number की तरह करना चाहती हैं। तरीकों(methods) के रूप में उन्हें access(प्रवेश) करना बहुत अच्छा होगा।
 
-The solution looks a little bit awkward, but here it is:
+- प्राथमिक(primitives) जितना संभव हो उतना तेज़ और हल्का होना चाहिए।
 
-1. Primitives are still primitive. A single value, as desired.
-2. The language allows access to methods and properties of strings, numbers, booleans and symbols.
-3. In order for that to work, a special "object wrapper" that provides the extra functionality is created, and then is destroyed.
+समाधान थोड़ा अजीब लग रहा है, लेकिन यहाँ यह है:
 
-The "object wrappers" are different for each primitive type and are called: `String`, `Number`, `Boolean` and `Symbol`. Thus, they provide different sets of methods.
+1. प्राराराथमिक(primitives) अभी भी प्राथमिक(primitives) हैं। एक मान,इच्छानुसार।
+2. भाषा स्ट्रिंग्स (string), संख्याओं(number), बूलियन्स(booleans) और चिह्न(symbol) के तरीकों(methods) और गुणों(properties) तक पहुंच की अनुमति देती है।
+3. इसके काम करने के लिए, एक विशेष "ऑब्जेक्ट रैपर(object wrapper)" बनाया जाता है जो अतिरिक्त कार्यक्षमता प्रदान करता है और फिर नष्ट हो जाता है।
+
+"ऑब्जेक्ट रैपर" प्रत्येक प्राथमिक(primitives) प्रकार के लिए अलग-अलग होते हैं और इन्हें कहा जाता है: `स्ट्रिंग`, `संख्या`, `बूलियन` और `सिंबल`। इस प्रकार, वे तरीकों के अलग-अलग सेट प्रदान करते हैं।
 
 For instance, there exists a string method [str.toUpperCase()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase) that returns a capitalized `str`.
 
